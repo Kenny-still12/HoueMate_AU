@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AU Studnet Working Hour Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="app.js"></script>
 </head>
 
 <body>
@@ -15,15 +17,42 @@
         </header>
         <section class="section one">
             <div class="input-container">
-                <h1>Add Hour</h1>
+                <h1>Add New Shift</h1>
                 <div class="input-fields">
-                    <form></form>
+                    <form class="input-form">
+                        <div class="form-group">
+                            <label for="date">Date</label>
+                            <input type="date" id="date" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="start-time">Start Time
+                            </label>
+                            <input type="time" id="start-time" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="end-time">End Time</label>
+                            <input type="time" id="end-time" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="break">Break (min)</label>
+                            <input type="number" id="break" class="form-input">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="workplace">Workplace</label>
+                            <input type="text" id="workplace" class="form-input">
+                        </div>
+                    </form>
+                    <button class="add-btn">+ Add Shift</button>
                 </div>
             </div>
         </section>
         <section class="section two">
             <div class="display-container">
-                <h1>Days and Weeks</h1>
+                <h2>This Week's Schedule</h1>
             </div>
             <div class="cards">
                 <!-- This will be displayed dynamically -->
@@ -31,8 +60,8 @@
         </section>
         <section class="section three">
             <div class="output-container">
-                <h1>Summary</h1>
-                <div class="output-cards"></div>
+                <h2>Summary</h1>
+                    <div class="output-cards"></div>
             </div>
         </section>
     </div>

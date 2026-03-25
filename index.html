@@ -6,7 +6,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>AU Studnet Working Hour Calculator</title>
     <link rel="stylesheet" href="style.css">
-    <script src="app.js"></script>
 </head>
 
 <body>
@@ -19,31 +18,31 @@
             <div class="input-container">
                 <h1>Add New Shift</h1>
                 <div class="input-fields">
-                    <form class="input-form">
+                    <form class="input-form" id="userForm">
                         <div class="form-group">
                             <label for="date">Date</label>
-                            <input type="date" id="date" class="form-input">
+                            <input type="date" name="date" id="date" class="form-input">
                         </div>
 
                         <div class="form-group">
                             <label for="start-time">Start Time
                             </label>
-                            <input type="time" id="start-time" class="form-input">
+                            <input type="time" name="startTime" id="start-time" class="form-input">
                         </div>
 
                         <div class="form-group">
                             <label for="end-time">End Time</label>
-                            <input type="time" id="end-time" class="form-input">
+                            <input type="time" name="endTime" id="end-time" class="form-input">
                         </div>
 
                         <div class="form-group">
                             <label for="break">Break (min)</label>
-                            <input type="number" id="break" class="form-input">
+                            <input type="number" name="break" id="break" class="form-input">
                         </div>
 
                         <div class="form-group">
                             <label for="workplace">Workplace</label>
-                            <input type="text" id="workplace" class="form-input">
+                            <input type="text" name="workPlace" id="workplace" class="form-input">
                         </div>
                     </form>
                     <button class="add-btn">+ Add Shift</button>
@@ -155,6 +154,8 @@
             </div>
         </section>
     </div>
+
+    <script src="app.js"></script>
 </body>
 
 </html>

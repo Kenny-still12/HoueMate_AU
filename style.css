@@ -25,7 +25,9 @@ header {
     margin: 30px auto;
 }
 
-.input-container h1 {
+.input-container h1,
+.display-container h1,
+.output-container h1 {
     margin-bottom: 12px;
     font-size: 1.5rem;
     font-weight: 600;
@@ -75,4 +77,47 @@ button:hover {
 
 button:active {
     transform: scale(0.98);
+}
+
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    padding: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    gap: 24px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+}
+
+.week-day {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: grey;
+}
+
+.card h2 {
+    font-size: 1.2rem;
+}
+
+
+
+.shift-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.shift-container p {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: grey;
 }

@@ -1,8 +1,10 @@
 const form = document.querySelector("#userForm");
 const addBtn = document.querySelector(".add-btn");
+const weekDay = document.querySelectorAll(".week-day")
 
 
 const shifts = [];
+let weekOffSet = 0;
 
 function renderAllShift(shifts) {
     const weekDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];

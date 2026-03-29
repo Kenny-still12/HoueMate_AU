@@ -36,6 +36,12 @@
         <li>improve responsive design</li>
 </ul>
 
+<h2>Current Limitation</h2>
+<ul>
+        <li>add shift on the same day</li>
+        <li>adding shift that overpass day aka midnight shift</li>
+        <li>Database to store data</li>
+</ul>
 <h2>Learning Focus</h2>
 
 <h3>This project is mainly used to practice:</h3>
@@ -51,5 +57,6 @@
         As an international student based in Australia, I have always struggled to manage my working hours since we have a restricted working hours, which is 48 hours per fortnight. As it is mentioned in the DFA website, it is our own responsibility to manage our working hours, since some of the employer are not familiar with those working restriction rules. However I have noticed that there are no proper tools to manage these working hour (as far as I know).
 That is the reason why I came up about this project. I turly believe that this is the beauty of being a programmer. If there is a problem, we have the power to solve it through our programming ability, and our creativity to problem solving. 
 </p>
+
 
 

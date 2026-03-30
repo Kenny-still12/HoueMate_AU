@@ -25,6 +25,7 @@
         <li>HTML</li>
         <li>CSS</li>
         <li>JavaScript</li>
+        <li>DayJS(library)</li>
 </ul>
 
 <h2>Future Plans</h2>

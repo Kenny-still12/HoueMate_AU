@@ -5,6 +5,7 @@ const inputContainer = document.querySelector(".input-container")
 const outputContainer = document.querySelector(".output-cards")
 const totalHourSpan = document.querySelector(".total-hour-span")
 const remainingHourSpan = document.querySelector(".remaining-hours-span")
+const errorMsg = document.querySelector(".error-display")
 
 
 export function refreshUI() {
@@ -106,6 +107,8 @@ export function displayError() {
 
 }
 
-function clearMessage() {
+export function clearMessage() {
+
+    errorMsg.classList.add("hidden");
 
 }

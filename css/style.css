@@ -58,6 +58,21 @@ form {
     padding: 0 12px;
 }
 
+.hidden {
+    display: none;
+}
+
+.error-display {
+    color: white;
+    background-color: hsla(0, 100%, 50%, 0.80);
+    width: 45%;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
 button {
     background: black;
     color: white;

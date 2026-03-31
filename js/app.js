@@ -1,4 +1,4 @@
-import { refreshUI, displayError } from "./render.js"
+import { refreshUI, displayError, clearMessage } from "./render.js"
 import { shifts } from "./data.js"
 import { loadShifts, saveData } from "./storage.js"
 import { getTotalMins } from "./logic.js"
@@ -29,6 +29,7 @@ function addNewShift() {
         return;
     }
 
+    clearMessage();
     shifts.push(newShift);
     saveData();
     refreshUI();

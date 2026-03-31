@@ -1,5 +1,5 @@
 import dayjs from "https://unpkg.com/dayjs@1.11.10/esm/index.js";
-
+import { refreshUI } from "./render.js"
 const form = document.querySelector("#userForm");
 const addBtn = document.querySelector(".add-btn");
 const inputContainer = document.querySelector(".input-container")
@@ -14,108 +14,6 @@ let currentWeekOffSet = 0;
 loadShifts();
 refreshUI();
 
-function refreshUI() {
-    renderWeekDates(currentWeekOffSet)
-    renderAllShift(getWeekShift(currentWeekOffSet))
-    renderSummary(getWeekShift(currentWeekOffSet))
-}
-
-
-function renderWeekDates(offSet) {
-    const weekDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-
-    const weekStart = getWeekStart(offSet);
-
-    weekDays.forEach((day, index) => {
-        const dateContainer = document.querySelector(`#${day} .date-container`)
-
-        if (dateContainer) {
-            dateContainer.innerHTML = "";
-
-            const currentDate = weekStart.add(index, "day");
-            const currentDay = document.createElement("p");
-            currentDay.classList.add("week-day");
-            currentDay.textContent = formatDate(currentDate);
-            dateContainer.append(currentDay);
-        }
-    })
-
-}
-
-
-function renderAllShift(shifts) {
-    const weekDays = ["sunday", "monday", "tuesday", "wednesday", "thursday", "friday", "saturday"];
-
-    weekDays.forEach(day => {
-        const container = document.querySelector(`#${day} .shift-container`)
-        if (container) container.innerHTML = "";
-    })
-
-    shifts.forEach(shift => {
-        const dayName = getDayName(shift.date).toLowerCase();
-        const container = document.querySelector(`#${dayName} .shift-container`);
-        if (container) {
-
-            const shiftCard = document.createElement("div");
-            shiftCard.classList.add("shift-card");
-
-            shiftCard.innerHTML = `
-                <div class="hour-display">
-                    <img src="assets/icons/clock-svgrepo-com.svg" alt="">
-                    <p>${shift.startTime} - ${shift.endTime}</p>
-                </div>
-
-                <div class="break-display">
-                    <img src="assets/icons/coffee-svgrepo-com.svg" alt="">
-                    <p>break: ${shift.break} mins</p>
-                </div>
-
-                <div class="location-display">
-                    <img src="assets/icons/location-svgrepo-com.svg" alt="">
-                    <p>${shift.workPlace}</p>
-                </div>
-
-                <div class="totalhour-display">
-                    <p>${convertHour(shift.totalMin - shift.break)}</p>
-                </div>
-            `;
-
-            container.append(shiftCard);
-        }
-    });
-}
-
-function renderSummary(shifts) {
-
-    totalHourSpan.textContent = convertHour(totalWeekHour(shifts));
-
-    remainingHourSpan.textContent = convertHour(calculateRemainingHours(totalWeekHour(shifts)));
-
-    if (isWithinLimit(totalWeekHour(shifts))) {
-        remainingHourSpan.style.color = "hsla(120, 100%, 45%)";
-    }
-}
-
-function displayError() {
-
-    if (inputContainer) {
-
-        const messageDiv = document.createElement("div");
-        messageDiv.classList.add("error-display");
-
-        messageDiv.innerHTML = `
-                <h2>Error!</h2>
-                <p>Please input shift within this week!</p>
-        `;
-
-        inputContainer.append(messageDiv);
-    }
-
-}
-
-function clearMessage() {
-
-}
 
 function addNewShift() {
     const formData = Object.fromEntries(new FormData(form));
@@ -160,7 +58,7 @@ function isSelectedWeek(shift, offSet) {
     return shiftDate.isSame(targetWeek, "week")
 }
 
-function getWeekStart(offset) {
+export function getWeekStart(offset) {
     return getSelectedWeek(offset).startOf("week")
 }
 
@@ -168,7 +66,7 @@ function getWeekEnd(offSet) {
     return getSelectedWeek(offSet).endOf("week")
 }
 
-function formatDate(date) {
+export function formatDate(date) {
     return dayjs(date).format("D MMM YYYY")
 }
 
@@ -186,7 +84,7 @@ function isSameWeek(offSet) {
     return dayjs().isSame(getSelectedWeek(offSet), 'week')
 }
 
-function getWeekShift(offSet) {
+export function getWeekShift(offSet) {
     const targetWeek = dayjs().add(offSet, "week");
 
     return shifts.filter((shift) => {
@@ -202,20 +100,20 @@ function getTotalMins(start, end) {
     return (endHour * 60 + endMin) - (startHour * 60 + startMin)
 }
 
-function convertHour(totalmins) {
+export function convertHour(totalmins) {
     const hours = Math.floor(totalmins / 60);
     const mins = totalmins % 60;
 
     return `${hours}h ${mins}m`;
 }
 
-function getDayName(date) {
+export function getDayName(date) {
     const days = ["sunday", 'monday', 'tuesday', 'wednesday', 'thursday', 'friday', 'saturday'];
     return days[(new Date(date).getDay())];
 }
 
 
-function totalWeekHour(shift) {
+export function totalWeekHour(shift) {
     const currentWeek = getWeekShift(currentWeekOffSet);
 
     const totalHour = currentWeek.reduce((total, shift) => {
@@ -225,12 +123,12 @@ function totalWeekHour(shift) {
     return totalHour;
 }
 
-function calculateRemainingHours(totalHour) {
+export function calculateRemainingHours(totalHour) {
 
     return TOTAL_HOUR_IN_MIN - totalHour;
 }
 
-function isWithinLimit(totalHour) {
+export function isWithinLimit(totalHour) {
     return totalHour < TOTAL_HOUR_IN_MIN ? true : false;
 }
 

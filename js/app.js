@@ -1,3 +1,4 @@
+import { currentWeekOffSet, setCurretnWeekOffset } from "./data.js"
 import { refreshUI, displayError, clearMessage } from "./render.js"
 import { shifts } from "./data.js"
 import { loadShifts, saveData } from "./storage.js"
@@ -7,6 +8,8 @@ import { isSelectedWeek } from "./validation.js";
 
 const form = document.querySelector("#userForm");
 const addBtn = document.querySelector(".add-btn");
+const prevBtn = document.querySelector(".prev-btn");
+const nextBtn = document.querySelector(".next-btn");
 
 loadShifts();
 refreshUI();
@@ -41,5 +44,19 @@ addBtn.addEventListener("click", (e) => {
     //clearMessage();
     addNewShift();
 
+})
+
+prevBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    setCurretnWeekOffset(-1);
+    console.log(currentWeekOffSet)
+    refreshUI();
+})
+
+nextBtn.addEventListener("click", (e) => {
+    e.preventDefault();
+    setCurretnWeekOffset(1);
+    console.log(currentWeekOffSet)
+    refreshUI();
 })
 

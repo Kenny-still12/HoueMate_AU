@@ -7,3 +7,9 @@ export function isSelectedWeek(shift, currentWeekOffSet) {
 
     return shiftDate.isSame(targetWeek, "week")
 }
+
+export function hasShift(shift, shifts) {
+
+    return shifts.some((existingShift) => existingShift.date === shift.date)
+
+}

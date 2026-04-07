@@ -71,6 +71,9 @@ function renderAllShift(shifts) {
 
                 <div class="totalhour-display">
                     <p>${convertHour(shift.totalMin - shift.break)}</p>
+                    <button data-id="${shift.shiftId}" class="delete" >
+                    <img src="assets/icons/delete-2-svgrepo-com.svg">
+                    </button>
                 </div>
             `;
 

@@ -88,6 +88,7 @@ button {
 
 button:hover {
     transform: translateY(-2px);
+    opacity: .80;
 }
 
 button:active {
@@ -136,6 +137,7 @@ button:active {
 }
 
 .shift-card {
+    width: 100%;
     display: flex;
     flex-direction: column;
     gap: 12px;
@@ -144,18 +146,20 @@ button:active {
 }
 
 .shift-card>div {
+    width: 100%;
     display: flex;
+    flex-direction: row;
     gap: 12px;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 }
-
 
 
 .shift-container img {
     width: 12px;
     height: 12px;
 }
+
 
 .shift-container p {
     font-size: 0.95rem;
@@ -166,6 +170,19 @@ button:active {
 .totalhour-display p {
     color: black;
     font-weight: 700;
+}
+
+.delete {
+    margin: 0;
+    margin-left: auto;
+    padding: 10px 20px;
+    background-color: transparent;
+    border: 1px solid #ddd;
+}
+
+.delete img {
+    width: 16px;
+    height: 16px;
 }
 
 .prev-btn,

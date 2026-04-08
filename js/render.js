@@ -6,12 +6,15 @@ const outputContainer = document.querySelector(".output-cards")
 const totalHourSpan = document.querySelector(".total-hour-span")
 const remainingHourSpan = document.querySelector(".remaining-hours-span")
 const errorMsg = document.querySelector(".error-display")
+const statusDisplay = document.querySelector(".status-display");
+const statusCard = document.querySelector(".status-card");
 
 
 export function refreshUI() {
     renderWeekDates(currentWeekOffSet)
     renderAllShift(getWeekShift(currentWeekOffSet))
     renderSummary(getWeekShift(currentWeekOffSet))
+    renderStatus(shifts)
 }
 
 
@@ -90,6 +93,29 @@ function renderSummary(shifts) {
 
     if (isWithinLimit(totalWeekHour(shifts))) {
         remainingHourSpan.style.color = "hsla(120, 100%, 45%)";
+    }
+}
+
+function renderStatus(shifts) {
+
+    const totalRemainingHours = calculateRemainingHours(totalWeekHour(shifts));
+
+    if (statusDisplay) {
+        if (totalRemainingHours > 0) {
+
+            statusCard.classList.add("safe");
+
+            statusCard.innerHTML = `
+            <div class = "status-image"><img src="/assets/icons/status-connected-svgrepo-com.svg" alt="">
+            </div>
+            <div class = "status-message">
+                <h2>Within Limit</h2>
+                <p>You're Complying with visa requirement</p>
+            </div>
+        `;
+
+            statusDisplay.append(statusCard);
+        }
     }
 }
 

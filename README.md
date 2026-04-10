@@ -4,6 +4,8 @@
         A lightweight web application designed to help international students in Australia calculate their weekly work hours and monitor wheteher they stay within visa work restriction.
 </p>
 
+<p>live demo: https://kenny-still12.github.io/HoueMate_AU/</p>
+
 <h2>Purpose of this Project</h2>
 
 <p>

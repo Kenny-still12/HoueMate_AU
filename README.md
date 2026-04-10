@@ -52,6 +52,13 @@
         <li>preparing codease for future migration to modern frontend tools</li>
 </ul>
 
+<h2>Progress</h2>
+<ul>
+        <li>April 9: Version 1 finished.</li>
+</ul>
+
+
+
 <h2> comment from me</h2>
 
 <p>

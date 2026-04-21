@@ -40,7 +40,7 @@ header {
 
 form {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
     gap: 24px;
 }
 
@@ -117,6 +117,12 @@ button:active {
 
 .week-day {
     font-size: 0.95rem;
+    font-weight: 400;
+    color: grey;
+}
+
+.week-day-name {
+    font-size: 0.80rem;
     font-weight: 400;
     color: grey;
 }

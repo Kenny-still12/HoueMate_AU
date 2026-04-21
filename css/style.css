@@ -58,6 +58,7 @@ form {
     border-radius: 8px;
     height: 32px;
     padding: 0 12px;
+    box-sizing: border-box;
 }
 
 
@@ -325,7 +326,7 @@ button:active {
 
 @media (max-width: 480px) {
     form {
-        grid-template-columns: 1fr;
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
 }

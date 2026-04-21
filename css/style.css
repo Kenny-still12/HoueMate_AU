@@ -326,7 +326,7 @@ button:active {
 
 @media (max-width: 480px) {
     form {
-        grid-template-columns: repeat(2, 1fr);
+        grid-template-columns: 1fr;
         gap: 12px;
     }
 }

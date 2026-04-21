@@ -31,9 +31,13 @@ function renderWeekDates(offSet) {
 
             const currentDate = weekStart.add(index, "day");
             const currentDay = document.createElement("p");
+            const currentDayName = document.createElement("p");
             currentDay.classList.add("week-day");
             currentDay.textContent = formatDate(currentDate);
+            currentDayName.textContent = `${day}`;
+            currentDayName.classList.add("week-day");
             dateContainer.append(currentDay);
+            dateContainer.append(currentDayName);
         }
     })
 
